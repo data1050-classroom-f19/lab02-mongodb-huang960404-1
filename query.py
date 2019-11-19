@@ -118,7 +118,8 @@ def query4():
                 'average_fare': {'$avg': '$fare_amount'},
                 'average_dist': {'$avg': {'$add': [{'$abs': {'$subtract': ['$pickup_longitude', '$dropoff_longitude']}}, 
                                                    {'$abs': {'$subtract': ['$pickup_latitude', '$dropoff_latitude']}}]}
-                }
+                },
+                'passenger_count': {'$sum': '$passenger_count'}
             }
         },
         {
